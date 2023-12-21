@@ -29,3 +29,6 @@ jobs:
 
       - name: run checks
         run: go run mage check
+
+      - name: run checks
+        run: go run mage snapshot
