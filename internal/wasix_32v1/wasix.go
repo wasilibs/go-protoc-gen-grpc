@@ -4,9 +4,9 @@ import (
 	"context"
 	"os"
 
-	wazero "github.com/wasilibs/wazerox"
-	"github.com/wasilibs/wazerox/api"
-	"github.com/wasilibs/wazerox/experimental/sys"
+	"github.com/tetratelabs/wazero"
+	"github.com/tetratelabs/wazero/api"
+	"github.com/tetratelabs/wazero/experimental/sys"
 )
 
 const ModuleName = "wasix_32v1"
