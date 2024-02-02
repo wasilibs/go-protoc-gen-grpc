@@ -2,7 +2,8 @@ FROM ghcr.io/wasilibs/wasix-sdk:sha-fc94d60
 
 RUN apt-get update && apt-get install -y binaryen git patch
 
-RUN git clone --recursive https://github.com/grpc/grpc.git --branch v1.60.0 /workspace
+ADD buildtools/wasm/version.txt version.txt
+RUN git clone --recursive https://github.com/grpc/grpc.git --branch $(cat version.txt | awk '{$1=$1};1') /workspace
 
 ENV CXXFLAGS "${CXXFLAGS} -O3 -pthread -D_WASI_EMULATED_MMAN -D_WASI_EMULATED_PROCESS_CLOCKS"
 ENV LDFLAGS $LDFLAGS -lwasi-emulated-process-clocks -lwasi-emulated-mman -Wl,--max-memory=4294967296

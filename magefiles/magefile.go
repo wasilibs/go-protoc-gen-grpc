@@ -4,11 +4,13 @@ import (
 	"fmt"
 
 	"github.com/magefile/mage/sh"
+
 	"github.com/wasilibs/magefiles" // mage:import
 )
 
 func init() {
 	magefiles.SetLibraryName("protoc_gen_grpc")
+	magefiles.SetLibraryRepo("grpc/grpc")
 }
 
 func Snapshot() error {

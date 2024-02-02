@@ -12,6 +12,7 @@ import (
 	"github.com/tetratelabs/wazero/experimental"
 	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
 	wzsys "github.com/tetratelabs/wazero/sys"
+
 	"github.com/wasilibs/go-protoc-gen-grpc/internal/wasix_32v1"
 )
 
