@@ -10,7 +10,7 @@ import (
 )
 
 func TestBuf(t *testing.T) {
-	if err := os.RemoveAll(filepath.Join("build", "buf")); err != nil {
+	if err := os.RemoveAll(filepath.Join("out", "buf")); err != nil {
 		t.Fatalf("failed to remove build directory: %v", err)
 	}
 
@@ -24,13 +24,13 @@ func TestBuf(t *testing.T) {
 	}
 
 	for _, path := range []string{
-		filepath.Join("build", "buf", "cpp", "helloworld.grpc.pb.cc"),
-		filepath.Join("build", "buf", "csharp", "HelloworldGrpc.cs"),
-		filepath.Join("build", "buf", "node", "helloworld_grpc_pb.js"),
-		filepath.Join("build", "buf", "objective_c", "Helloworld.pbrpc.m"),
-		filepath.Join("build", "buf", "php", "Helloworld", "GreeterClient.php"),
-		filepath.Join("build", "buf", "python", "helloworld_pb2_grpc.py"),
-		filepath.Join("build", "buf", "ruby", "helloworld_services_pb.rb"),
+		filepath.Join("out", "buf", "cpp", "helloworld.grpc.pb.cc"),
+		filepath.Join("out", "buf", "csharp", "HelloworldGrpc.cs"),
+		filepath.Join("out", "buf", "node", "helloworld_grpc_pb.js"),
+		filepath.Join("out", "buf", "objective_c", "Helloworld.pbrpc.m"),
+		filepath.Join("out", "buf", "php", "Helloworld", "GreeterClient.php"),
+		filepath.Join("out", "buf", "python", "helloworld_pb2_grpc.py"),
+		filepath.Join("out", "buf", "ruby", "helloworld_services_pb.rb"),
 	} {
 		if _, err := os.Stat(path); err != nil {
 			t.Errorf("failed to stat %v: %v", path, err)
@@ -43,11 +43,11 @@ func TestProtoc(t *testing.T) {
 		t.Skip("protoc not found")
 	}
 
-	outDir := filepath.Join("build", "protoc")
+	outDir := filepath.Join("out", "protoc")
 	if err := os.RemoveAll(outDir); err != nil {
 		t.Fatalf("failed to remove build directory: %v", err)
 	}
-	if err := os.RemoveAll(filepath.Join("build", "plugins")); err != nil {
+	if err := os.RemoveAll(filepath.Join("out", "plugins")); err != nil {
 		t.Fatalf("failed to remove build directory: %v", err)
 	}
 
@@ -92,13 +92,13 @@ func TestProtoc(t *testing.T) {
 	}
 
 	for _, path := range []string{
-		filepath.Join("build", "protoc", "cpp", "helloworld.grpc.pb.cc"),
-		filepath.Join("build", "protoc", "csharp", "HelloworldGrpc.cs"),
-		filepath.Join("build", "protoc", "node", "helloworld_grpc_pb.js"),
-		filepath.Join("build", "protoc", "objective_c", "Helloworld.pbrpc.m"),
-		filepath.Join("build", "protoc", "php", "Helloworld", "GreeterClient.php"),
-		filepath.Join("build", "protoc", "python", "helloworld_pb2_grpc.py"),
-		filepath.Join("build", "protoc", "ruby", "helloworld_services_pb.rb"),
+		filepath.Join("out", "protoc", "cpp", "helloworld.grpc.pb.cc"),
+		filepath.Join("out", "protoc", "csharp", "HelloworldGrpc.cs"),
+		filepath.Join("out", "protoc", "node", "helloworld_grpc_pb.js"),
+		filepath.Join("out", "protoc", "objective_c", "Helloworld.pbrpc.m"),
+		filepath.Join("out", "protoc", "php", "Helloworld", "GreeterClient.php"),
+		filepath.Join("out", "protoc", "python", "helloworld_pb2_grpc.py"),
+		filepath.Join("out", "protoc", "ruby", "helloworld_services_pb.rb"),
 	} {
 		if _, err := os.Stat(path); err != nil {
 			t.Errorf("failed to stat %v: %v", path, err)
