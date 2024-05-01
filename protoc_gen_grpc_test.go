@@ -54,7 +54,7 @@ func TestProtoc(t *testing.T) {
 	plugins := []string{"cpp", "csharp", "node", "objective_c", "php", "python", "ruby"}
 	for _, plugin := range plugins {
 		output := bytes.Buffer{}
-		cmd := exec.Command("go", "build", "-o", filepath.Join("build", "plugins", "protoc-gen-grpc_"+plugin), "./cmd/protoc-gen-grpc_"+plugin)
+		cmd := exec.Command("go", "build", "-o", filepath.Join("out", "plugins", "protoc-gen-grpc_"+plugin), "./cmd/protoc-gen-grpc_"+plugin)
 		cmd.Stderr = &output
 		cmd.Stdout = &output
 		if err := cmd.Run(); err != nil {
