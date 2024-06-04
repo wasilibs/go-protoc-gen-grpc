@@ -1,85 +1,86 @@
 builds:
-  - main: ./cmd/protoc-gen-grpc_cpp
-    id: cpp
-    binary: protoc-gen-grpc_cpp
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - linux_amd64
-      - linux_arm64
-      - darwin_amd64
-      - darwin_arm64
-      - windows_amd64
-  - main: ./cmd/protoc-gen-grpc_csharp
-    id: csharp
-    binary: protoc-gen-grpc_csharp
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - linux_amd64
-      - linux_arm64
-      - darwin_amd64
-      - darwin_arm64
-      - windows_amd64
-  - main: ./cmd/protoc-gen-grpc_node
-    id: node
-    binary: protoc-gen-grpc_node
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - linux_amd64
-      - linux_arm64
-      - darwin_amd64
-      - darwin_arm64
-      - windows_amd64
-  - main: ./cmd/protoc-gen-grpc_objective_c
-    id: objective_c
-    binary: protoc-gen-grpc_objective_c
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - linux_amd64
-      - linux_arm64
-      - darwin_amd64
-      - darwin_arm64
-      - windows_amd64
-  - main: ./cmd/protoc-gen-grpc_php
-    id: php
-    binary: protoc-gen-grpc_php
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - linux_amd64
-      - linux_arm64
-      - darwin_amd64
-      - darwin_arm64
-      - windows_amd64
-  - main: ./cmd/protoc-gen-grpc_python
-    id: python
-    binary: protoc-gen-grpc_python
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - linux_amd64
-      - linux_arm64
-      - darwin_amd64
-      - darwin_arm64
-      - windows_amd64
-  - main: ./cmd/protoc-gen-grpc_ruby
-    id: ruby
-    binary: protoc-gen-grpc_ruby
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - linux_amd64
-      - linux_arm64
-      - darwin_amd64
-      - darwin_arm64
-      - windows_amd64
+- main: ./cmd/protoc-gen-grpc_cpp
+  id: cpp
+  binary: protoc-gen-grpc_cpp
+  env:
+  - CGO_ENABLED=0
+  targets:
+  - linux_amd64
+  - linux_arm64
+  - darwin_amd64
+  - darwin_arm64
+  - windows_amd64
+- main: ./cmd/protoc-gen-grpc_csharp
+  id: csharp
+  binary: protoc-gen-grpc_csharp
+  env:
+  - CGO_ENABLED=0
+  targets:
+  - linux_amd64
+  - linux_arm64
+  - darwin_amd64
+  - darwin_arm64
+  - windows_amd64
+- main: ./cmd/protoc-gen-grpc_node
+  id: node
+  binary: protoc-gen-grpc_node
+  env:
+  - CGO_ENABLED=0
+  targets:
+  - linux_amd64
+  - linux_arm64
+  - darwin_amd64
+  - darwin_arm64
+  - windows_amd64
+- main: ./cmd/protoc-gen-grpc_objective_c
+  id: objective_c
+  binary: protoc-gen-grpc_objective_c
+  env:
+  - CGO_ENABLED=0
+  targets:
+  - linux_amd64
+  - linux_arm64
+  - darwin_amd64
+  - darwin_arm64
+  - windows_amd64
+- main: ./cmd/protoc-gen-grpc_php
+  id: php
+  binary: protoc-gen-grpc_php
+  env:
+  - CGO_ENABLED=0
+  targets:
+  - linux_amd64
+  - linux_arm64
+  - darwin_amd64
+  - darwin_arm64
+  - windows_amd64
+- main: ./cmd/protoc-gen-grpc_python
+  id: python
+  binary: protoc-gen-grpc_python
+  env:
+  - CGO_ENABLED=0
+  targets:
+  - linux_amd64
+  - linux_arm64
+  - darwin_amd64
+  - darwin_arm64
+  - windows_amd64
+- main: ./cmd/protoc-gen-grpc_ruby
+  id: ruby
+  binary: protoc-gen-grpc_ruby
+  env:
+  - CGO_ENABLED=0
+  targets:
+  - linux_amd64
+  - linux_arm64
+  - darwin_amd64
+  - darwin_arm64
+  - windows_amd64
+  - windows_arm64
 archives:
-  - format_overrides:
-      - goos: windows
-        format: zip
+- format_overrides:
+  - goos: windows
+    format: zip
 release:
   mode: append
 checksum:
