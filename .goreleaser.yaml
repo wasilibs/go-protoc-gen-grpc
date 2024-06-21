@@ -95,4 +95,4 @@ checksum:
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
 changelog:
-  skip: true
+  disable: true
