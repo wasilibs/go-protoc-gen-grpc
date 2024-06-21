@@ -1,23 +1,23 @@
 version: v1
 plugins:
-- plugin: grpc_cpp
-  out: ../out/buf/cpp
-  path: ["go", "run", "../cmd/protoc-gen-grpc_cpp"]
-- plugin: grpc_csharp
-  out: ../out/buf/csharp
-  path: ["go", "run", "../cmd/protoc-gen-grpc_csharp"]
-- plugin: grpc_node
-  out: ../out/buf/node
-  path: ["go", "run", "../cmd/protoc-gen-grpc_node"]
-- plugin: grpc_objective_cc
-  out: ../out/buf/objective_c
-  path: ["go", "run", "../cmd/protoc-gen-grpc_objective_c"]
-- plugin: grpc_php
-  out: ../out/buf/php
-  path: ["go", "run", "../cmd/protoc-gen-grpc_php"]
-- plugin: grpc_python
-  out: ../out/buf/python
-  path: ["go", "run", "../cmd/protoc-gen-grpc_python"]
-- plugin: grpc_ruby
-  out: ../out/buf/ruby
-  path: ["go", "run", "../cmd/protoc-gen-grpc_ruby"]
+  - plugin: grpc_cpp
+    out: ../out/buf/cpp
+    path: ["go", "run", "../cmd/protoc-gen-grpc_cpp"]
+  - plugin: grpc_csharp
+    out: ../out/buf/csharp
+    path: ["go", "run", "../cmd/protoc-gen-grpc_csharp"]
+  - plugin: grpc_node
+    out: ../out/buf/node
+    path: ["go", "run", "../cmd/protoc-gen-grpc_node"]
+  - plugin: grpc_objective_cc
+    out: ../out/buf/objective_c
+    path: ["go", "run", "../cmd/protoc-gen-grpc_objective_c"]
+  - plugin: grpc_php
+    out: ../out/buf/php
+    path: ["go", "run", "../cmd/protoc-gen-grpc_php"]
+  - plugin: grpc_python
+    out: ../out/buf/python
+    path: ["go", "run", "../cmd/protoc-gen-grpc_python"]
+  - plugin: grpc_ruby
+    out: ../out/buf/ruby
+    path: ["go", "run", "../cmd/protoc-gen-grpc_ruby"]

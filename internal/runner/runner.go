@@ -48,7 +48,7 @@ func Run(name string, wasmBin []byte) {
 
 	_, err := rt.InstantiateWithConfig(ctx, wasmBin, cfg)
 	if err != nil {
-		if sErr, ok := err.(*sys.ExitError); ok {
+		if sErr, ok := err.(*sys.ExitError); ok { //nolint:errorlint
 			os.Exit(int(sErr.ExitCode()))
 		}
 		log.Fatal(err)
