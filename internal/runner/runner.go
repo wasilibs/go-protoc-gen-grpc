@@ -12,12 +12,14 @@ import (
 	"github.com/tetratelabs/wazero/experimental"
 	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
 	wzsys "github.com/tetratelabs/wazero/sys"
+	"github.com/wasilibs/wazero-helpers/allocator"
 
 	"github.com/wasilibs/go-protoc-gen-grpc/internal/wasix_32v1"
 )
 
 func Run(name string, wasm []byte) {
 	ctx := context.Background()
+	ctx = experimental.WithMemoryAllocator(ctx, allocator.NewNonMoving())
 
 	rt := wazero.NewRuntimeWithConfig(ctx, wazero.NewRuntimeConfig().WithCoreFeatures(api.CoreFeaturesV2|experimental.CoreFeaturesThreads))
 
