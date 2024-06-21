@@ -11,20 +11,23 @@ import (
 	"github.com/tetratelabs/wazero/api"
 	"github.com/tetratelabs/wazero/experimental"
 	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
-	wzsys "github.com/tetratelabs/wazero/sys"
+	"github.com/tetratelabs/wazero/sys"
 	"github.com/wasilibs/wazero-helpers/allocator"
 
-	"github.com/wasilibs/go-protoc-gen-grpc/internal/wasix_32v1"
+	"github.com/wasilibs/go-protoc-gen-grpc/internal/wasm"
 )
 
-func Run(name string, wasm []byte) {
+func Run(name string, wasmBin []byte) {
 	ctx := context.Background()
 	ctx = experimental.WithMemoryAllocator(ctx, allocator.NewNonMoving())
 
 	rt := wazero.NewRuntimeWithConfig(ctx, wazero.NewRuntimeConfig().WithCoreFeatures(api.CoreFeaturesV2|experimental.CoreFeaturesThreads))
 
 	wasi_snapshot_preview1.MustInstantiate(ctx, rt)
-	wasix_32v1.MustInstantiate(ctx, rt)
+
+	if _, err := rt.InstantiateWithConfig(ctx, wasm.Memory, wazero.NewModuleConfig().WithName("env")); err != nil {
+		log.Fatal(err)
+	}
 
 	args := []string{name}
 	args = append(args, os.Args[1:]...)
@@ -43,9 +46,9 @@ func Run(name string, wasm []byte) {
 		cfg = cfg.WithEnv(k, v)
 	}
 
-	_, err := rt.InstantiateWithConfig(ctx, wasm, cfg)
+	_, err := rt.InstantiateWithConfig(ctx, wasmBin, cfg)
 	if err != nil {
-		if sErr, ok := err.(*wzsys.ExitError); ok {
+		if sErr, ok := err.(*sys.ExitError); ok {
 			os.Exit(int(sErr.ExitCode()))
 		}
 		log.Fatal(err)

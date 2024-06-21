@@ -22,3 +22,6 @@ var GRPCPythonPlugin []byte
 
 //go:embed grpc_ruby_plugin.wasm
 var GRPCRubyPlugin []byte
+
+//go:embed memory.wasm
+var Memory []byte
