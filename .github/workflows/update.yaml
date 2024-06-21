@@ -5,6 +5,10 @@ on:
     - cron: "5 4 * * *"
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  attestations: write
+
 jobs:
   build:
     uses: wasilibs/actions/.github/workflows/update.yaml@b661aa384cbc5de5d04b4d99b9dc5bbeaeb247d3
