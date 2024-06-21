@@ -23,7 +23,7 @@ RUN rm third_party/protobuf/src/google/protobuf/compiler/subprocess.* third_part
 RUN sed -i '/src\/google\/protobuf\/compiler\/subprocess\./d' third_party/protobuf/src/file_lists.cmake
 RUN sed -i '/src\/google\/protobuf\/compiler\/command_line_interface\./d' third_party/protobuf/src/file_lists.cmake
 
-RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXE_LINKER_FLAGS="$LDFLAGS" -S . -B build
+RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXE_LINKER_FLAGS="$LDFLAGS" -S . -B build
 RUN cmake --build build --target plugins -j 2
 
 RUN for f in build/*_plugin; do wasm-opt -o "$f".wasm --low-memory-unused --flatten --rereloop --converge -O3 "$f"; done
