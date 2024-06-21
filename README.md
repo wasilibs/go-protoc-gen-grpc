@@ -31,7 +31,12 @@ version: v1
 plugins:
   - plugin: grpc_python
     out: out/python
-    path: ["go", "run", "github.com/wasilibs/go-protoc-gen-grpc/cmd/protoc-gen-grpc_python@latest"]
+    path:
+      [
+        "go",
+        "run",
+        "github.com/wasilibs/go-protoc-gen-grpc/cmd/protoc-gen-grpc_python@latest",
+      ]
 ```
 
 If also using [go-protoc-gen-builtins][4] for generating the non-gRPC protobuf stubs, and invoking
