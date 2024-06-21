@@ -1,3 +1,4 @@
+project_name: protoc-gen-grpc
 builds:
   - main: ./cmd/protoc-gen-grpc_cpp
     id: cpp
