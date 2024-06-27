@@ -5,7 +5,12 @@ on:
     tags:
       - v*
 
+permissions:
+  id-token: write
+  attestations: write
+  contents: write
+
 jobs:
   release:
-    uses: wasilibs/actions/.github/workflows/release.yaml@7b3d415a47bf67024079ff9d9a0cbb96d7067276
+    uses: wasilibs/actions/.github/workflows/release.yaml@eeee5d072ee283c12eb68e2c4969012fae3d6dd0
     secrets: inherit
