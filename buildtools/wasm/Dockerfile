@@ -13,8 +13,9 @@ ENV LDFLAGS -lwasi-emulated-process-clocks -lwasi-emulated-mman -lwasi-emulated-
 WORKDIR /workspace
 
 ADD buildtools/wasm/patch-absl.txt patch-absl.txt
-
 RUN cd third_party/abseil-cpp && patch -p1 < ../../patch-absl.txt
+ADD buildtools/wasm/patch-protobuf.txt patch-protobuf.txt
+RUN cd third_party/protobuf && patch -p1 < ../../patch-protobuf.txt
 
 # libprotoc, the library that code generator plugins link against, includes the command line interface, including
 # subprocess execution. Code generator plugins never need this, so we can remove the files to allow the project to
