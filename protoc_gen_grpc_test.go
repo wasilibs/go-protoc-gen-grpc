@@ -1,4 +1,4 @@
-package protoc_gen_grpc
+package protocgengrpc
 
 import (
 	"bytes"
