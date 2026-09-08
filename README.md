@@ -1,11 +1,11 @@
 # go-protoc-gen-grpc
 
 go-protoc-gen-grpc is a distribution of the official gRPC protoc generation plugins from [grpc/grpc][1]
-(this is not to be confused with protoc-gen-grpc-go, the compiler for generating Go gRPC stubs, which also
-happens to be written in Go). It does not actually reimplement any functionality of gRPC in Go, instead compiling
-the original source code to WebAssembly, and executing with the pure Go Wasm runtime [wazero][2].
-This means that `go install` or `go run` can be used to execute it, with no need to rely on external
-package managers such as Homebrew, on any platform that Go supports.
+(this is not to be confused with protoc-gen-grpc-go, the compiler for generating Go gRPC stubs, which
+also happens to be written in Go). It does not actually reimplement any functionality of gRPC in Go,
+instead compiling the original source code to WebAssembly, and executing with the pure Go Wasm runtime
+[wazero][2]. This means that `go install` or `go run` can be used to execute it, with no need to rely
+on external package managers such as Homebrew, on any platform that Go supports.
 
 ## Installation
 
@@ -13,16 +13,17 @@ Precompiled binaries are available in the [releases](https://github.com/wasilibs
 Alternatively, install the plugin you want using `go install`.
 
 ```bash
-$ go install github.com/wasilibs/go-protoc-gen-grpc/cmd/protoc-gen-grpc_python@latest
+go install github.com/wasilibs/go-protoc-gen-grpc/cmd/protoc-gen-grpc_python@latest
 ```
 
 As long as `$GOPATH/bin`, e.g. `~/go/bin` is on the `PATH`, you can use it with protoc as normal.
 
 ```bash
-$ protoc --grpc_python_out=out/python -Iprotos protos/helloworld.proto
+protoc --grpc_python_out=out/python -Iprotos protos/helloworld.proto
 ```
 
-Note that the filenames of binaries in this repository match protoc conventions so `--plugin` is not needed.
+Note that the filenames of binaries in this repository match protoc conventions so `--plugin` is not
+needed.
 
 For [buf][3] users, to avoid installation entirely, it can be convenient to use `go run` in `buf.gen.yaml`.
 
